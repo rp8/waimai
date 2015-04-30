@@ -1,0 +1,7 @@
+<div>
+  <select id="customer_selected" name="customer_selected">
+  <% @customers.each do |c| %>
+    <option value="<%= c.id %>"><%= c.first_name + ' ' + c.last_name + ', ' + c.phone %></option>
+  <% end %>
+  </select>
+</div>

@@ -1,0 +1,29 @@
+<div class="search-customer">
+  <label>Enter Phone Number</label>
+  <%= text_field_tag('search_phone', nil, :class => 'input-phone') %>
+  <div id="search_results" class="search-results">
+  </div>
+  <%= observe_field(:search_phone, :url => "/sites/#{@site.id}/customers/find", 
+                      :frequency => 0.25, :update => :search_results,
+                      :with => 'phone', :method => :get
+                     ) %>
+</div>
+
+<!--
+<table class="directions">
+<tr><th>Directions</th><th>Map</th></tr>
+<tr>
+<td valign="top"><div id="directions" style="width: 275px"></div></td>
+<td valign="top"><div id="map_canvas" style="width: 310px; height: 400px"></div></td>
+</tr>
+</table> 
+-->
+
+<!--
+Static Maps (printable) version:
+
+<div id="staticMapOverviewIMG"></div>
+<div id="staticMapStartIMG"></div>
+<div id="staticMapEndIMG"></div>
+-->
+

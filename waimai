@@ -1,0 +1,97 @@
+
+waimai="/home/rpan/projects/waimai" CD=. filter="*" {
+ README
+ Rakefile
+ app=app {
+  controllers=controllers filter="**" {
+   application.rb
+   customers_controller.rb
+   sessions_controller.rb
+   sites_controller.rb
+   users_controller.rb
+  }
+  helpers=helpers filter="**" {
+   application_helper.rb
+   sessions_helper.rb
+   sites_helper.rb
+   users_helper.rb
+  }
+  models=models filter="**" {
+   membership.rb
+   customer.rb
+   order.rb
+   site.rb
+   user.rb
+   user_mailer.rb
+   user_observer.rb
+  }
+  views=views filter="**" {
+   layouts/application.haml
+   sessions/new.html.erb
+   sites/index.haml
+   sites/new.haml
+   sites/_search_customer.haml
+   sites/_new_orders.haml
+   sites/show.haml
+   user_mailer/activation.erb
+   user_mailer/signup_notification.erb
+   users/_user_bar.haml
+   users/new.html.erb
+  }
+ }
+ config=config {
+  boot.rb
+  database.yml
+  environment.rb
+  routes.rb
+  environments=environments {
+   development.rb
+   production.rb
+   test.rb
+  }
+ }
+ db=db {
+  schema.rb
+ }
+ lib=lib filter="* */**/*.rb " {
+  authenticated_system.rb
+  authenticated_test_helper.rb
+  tasks=tasks filter="**/*.rake" {
+  }
+ }
+ public=public {
+  404.html
+  422.html
+  500.html
+  dispatch.cgi
+  dispatch.fcgi
+  dispatch.rb
+  favicon.ico
+  index.html
+  robots.txt
+  images=images {
+   rails.png
+  }
+  javascripts=javascripts {
+   application.js
+   controls.js
+   dragdrop.js
+   effects.js
+   prototype.js
+  }
+  stylesheets=stylesheets {
+   styles.css
+  }
+ }
+ test=test {
+  test_helper.rb
+  fixtures=fixtures filter="**" {
+  }
+  functional=functional filter="**" {
+  }
+  integration=integration filter="**" {
+  }
+  unit=unit filter="**" {
+  }
+ }
+}

@@ -1,0 +1,22 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>Waimai</title>
+    <!--
+    <script type="text/javascript" src="http://maps.google.com/maps?file=api&v=2&sensor=false&key=ABQIAAAAN1NowbApvh7-dSrapHLVrhT2yXp_ZAY8_ufC3CFXhHIE1NvwkxTDQieqPfxOqSSOUAU7dZyEab-prg"></script>
+    -->
+    <%= javascript_include_tag 'prototype', 'effects', 'dragdrop', 'lightbox', 'gmap' %>
+    <%= stylesheet_link_tag 'styles' %>
+    <%= stylesheet_link_tag 'lightbox' %>
+  </head>
+
+  <!--<body onunload="GUnload()">-->
+<body">
+  <%= render :partial => 'users/user_bar' %>
+  <div id="msg"><%= flash[:notice] %></div>
+  <div id="err"><%= flash[:error] %></div>
+  <%= yield %>
+</body>
+
+</html>

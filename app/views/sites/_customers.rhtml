@@ -1,0 +1,12 @@
+
+<ul class="">
+  <% if @site and @site.customers.length > 0 %>
+    <% for c in @site.customers do %>
+      <li>
+        <span class=""><%= customer_name(c) %></span>
+        <span class=""><%= link_to('Edit', edit_site_customer_path(c.site_id, c), :class => 'lbOn') %></span>
+        <span class=""><%= link_to_customer_directions(c) %></span>
+      </li>
+    <% end %>
+  <% end %>
+</ul>

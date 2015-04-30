@@ -1,0 +1,14 @@
+<h2><%= @site.name %></h2>
+
+<%= render :partial => 'search_customer' %>
+
+<div id="new_orders">
+<h4><a href="<%= site_orders_url(@site) %>">New Orders</a></h4>
+<%= render :partial => 'orders', :locals => {:site => @site}, :collection => @new_orders, :as => :order %>
+</div>
+
+<div id="completed_orders">
+<h4><a href="<%= site_orders_url(@site) %>">Completed Orders</a></h4>
+<%= render :partial => 'orders', :locals => {:site => @site}, :collection => @old_orders, :as => :order %>
+</div>
+

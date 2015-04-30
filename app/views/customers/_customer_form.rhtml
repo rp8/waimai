@@ -1,0 +1,49 @@
+<% remote_form_for([@customer.site, @customer]) do |f| %>
+ <table>
+  <tr>
+  <%= f.error_messages %>
+  </tr>
+  <tr>
+    <td>
+      <%= f.label :phone %>
+      <br/>
+      <%= f.text_field :phone, :size => 15 %>
+    </td>
+
+    <td>
+      <%= f.label :first_name %>
+      <br/>
+      <%= f.text_field :first_name, :size => 25 %>
+    </td>
+
+    <td>
+      <%= f.label :last_name %>
+      <br/>
+      <%= f.text_field :last_name, :size => 25 %>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="3">
+      <%= f.label :address %>
+      <br/>
+      <%= f.text_field :address, :size => 73 %>
+      <br/>
+
+      <%= f.label :note %>
+      <br/>
+      <%= f.text_field :note, :size => 73 %>
+    </td>
+  </tr>
+
+  <tr>
+    <td colspan="3">
+      <%= f.submit(@customer.new_record? ? "Save" : "Update") %>
+      &nbsp;&nbsp;<a href="#" class="lbAction" rel="deactivate">Close</a>&nbsp;&nbsp;
+      <a href="#" onclick="javascript:showmap('map_canvas', '<%=@customer.address%>');">Show Address in Map</a>
+  </td>
+  </tr>
+ </table>
+<% end %>
+
+<div id="map_canvas" style="width: 610px; height: 200px"></div>
+

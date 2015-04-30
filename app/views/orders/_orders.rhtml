@@ -1,0 +1,25 @@
+<div class="orders">
+    <div class="order">
+      <%= order.order_id %>
+      <%= order.customer.name + ', ' + order.customer.address %> - 
+      <%= link_to 'Edit', edit_site_order_path(@site, order), :class => 'lbOn' %> 
+      <% if order.status == 'new' %>
+        <span id="status_<%= order.id %>">
+          <%= link_to_remote order.status.upcase, 
+          :html => {:title => 'Change to Completed'},
+          :url => site_order_url(site, order.id), 
+          :method => :put, 
+          :with => "'status=completed'",
+          :update => "status_#{order.id}" %>
+        </span>
+      <% else %>
+        <span id="status_<%= order.id %>">
+          <%= link_to_remote order.status.upcase, 
+          :html => {:title => 'Change to New'},
+          :url => site_order_url(site, order.id), 
+          :method => :put, 
+          :with => "'status=new'",
+          :update => "status_#{order.id}" %>
+        </span>
+      <% end %>
+    </div>

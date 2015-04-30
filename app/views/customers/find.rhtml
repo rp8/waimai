@@ -1,0 +1,22 @@
+<ul class="auto_complete_list">
+  <% if @customers and @customers.length > 0 %>
+  <% for c in @customers do %>
+    <li>
+      <span class="auto_complete_item"><%= customer_name(c) %></span>
+      <span class="auto_complete_item">
+        <%= link_to 'New Order', new_customer_order_path(c), :id => "customer_#{c.id}", :class => 'lbOn' %>
+        <script type="text/javascript">new lightbox($(<%="'customer_#{c.id}'"%>));</script>
+      </span>
+      <span class="auto_complete_item"><%= link_to_directions(c) %></span>
+    </li>
+  <% end %>
+<% elsif @phone == '' %>
+<% else %>
+  <li>
+  <span class="auto_complete_item">Check above phone number or click 
+    <%= link_to('New Customer', new_site_customer_path(@site.id, :phone => @phone), :id => 'new_customer', :class => 'lbOn') %>
+    <script type="text/javascript">new lightbox($('new_customer'));</script>
+  </span>
+  </li>
+<% end %>
+</ul>
